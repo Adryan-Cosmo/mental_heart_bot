@@ -1,1 +1,6 @@
 models/*
+.rasa
+__pycache__/
+credentials.yml
+.venv
+
