@@ -1,5 +1,5 @@
 models/*
-.rasa
+.rasa/*
 __pycache__/
 credentials.yml
 .venv
