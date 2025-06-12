@@ -1,0 +1,86 @@
+version: "3.1"
+
+stories:
+- story: saudacao e inicio
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_ask_feeling
+
+- story: pergunta sobre funcionamento
+  steps:
+  - intent: ask_how_works
+  - action: utter_how_works
+
+- story: ajuda com ansiedade direta
+  steps:
+  - intent: mood_anxious
+  - action: utter_anxious
+  - intent: thank
+  - action: utter_thanks
+
+- story: ajuda com tristeza direta
+  steps:
+  - intent: mood_depressed
+  - action: utter_depressed
+  - intent: thank
+  - action: utter_thanks
+
+- story: ajuda com estresse direta
+  steps:
+  - intent: mood_stressed
+  - action: utter_stressed
+  - intent: thank
+  - action: utter_thanks
+
+- story: solicita tecnica de relaxamento
+  steps:
+  - intent: request_relaxation_technique
+  - action: utter_relaxation_technique
+  - intent: thank
+  - action: utter_thanks
+
+- story: solicita gestao de tempo
+  steps:
+  - intent: request_time_management
+  - action: utter_time_management
+  - intent: thank
+  - action: utter_thanks
+
+- story: solicita dicas de estudo
+  steps:
+  - intent: request_study_tips
+  - action: utter_study_tips
+  - intent: thank
+  - action: utter_thanks
+
+
+
+- story: emergencia direta
+  steps:
+  - intent: emergency_help
+
+- story: despedida
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+
+- story: usuario informa humor diretamente
+  steps:
+  - intent: inform_mood
+    entities:
+    - mood: "triste"
+  - action: utter_depressed 
+
+
+- story: usuario quer registrar humor (simplificado)
+  steps:
+  - intent: request_mood_tracking
+  - action: utter_simple_mood_response
+
+
+- story: usuario quer resumo de humor (simplificado)
+  steps:
+  - intent: request_mood_summary
+  - action: utter_mood_summary

@@ -1,0 +1,71 @@
+version: "3.1"
+
+rules:
+- rule: dizer olá sempre que o usuário enviar uma saudação
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_ask_feeling
+
+- rule: dizer adeus sempre que o usuário se despedir
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: responder a agradecimentos
+  steps:
+  - intent: thank
+  - action: utter_thanks
+
+# Regras simples para intents que antes usavam actions customizadas
+- rule: responder a pedidos de emergência (agora com utter direto)
+  steps:
+  - intent: emergency_help
+  - action: utter_emergency_help
+
+- rule: responder a pedidos de relaxamento
+  steps:
+  - intent: request_relaxation_technique
+  - action: utter_relaxation_technique
+
+- rule: responder a pedidos de gestão de tempo
+  steps:
+  - intent: request_time_management
+  - action: utter_time_management
+
+- rule: responder a pedidos de dicas de estudo
+  steps:
+  - intent: request_study_tips
+  - action: utter_study_tips
+
+- rule: responder a pedidos de lembrete (agora com utter direto)
+  steps:
+  - intent: request_reminder
+  - action: utter_set_reminder # Resposta simples dizendo que não consegue
+
+- rule: responder a como funciona
+  steps:
+  - intent: ask_how_works
+  - action: utter_how_works
+
+- rule: responder a pedido de rastreamento de humor (agora com utter direto)
+  steps:
+  - intent: request_mood_tracking
+  - action: utter_simple_mood_response # Uma resposta simples, sem formulário
+
+- rule: responder a pedido de resumo de humor (agora com utter direto)
+  steps:
+  - intent: request_mood_summary
+  - action: utter_mood_summary # Uma resposta simples, sem ação complexa
+
+- rule: Confirmação de ajuda
+  steps:
+  - action: utter_ask_for_more_help
+  - intent: affirm
+  - action: utter_glad_to_help
+
+- rule: Negação de ajuda
+  steps:
+  - action: utter_ask_for_more_help
+  - intent: deny
+  - action: utter_goodbye

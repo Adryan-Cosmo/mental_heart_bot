@@ -1,0 +1,16 @@
+version: "3.1"
+
+forms:
+  mood_tracking_form:
+    required_slots:
+      current_mood:
+        - type: from_entity
+          entity: mood
+      mood_intensity:
+        - type: from_entity
+          entity: intensity
+          intent: inform_intensity
+        - type: from_text
+          intent: inform_intensity
+      mood_trigger:
+        - type: from_text

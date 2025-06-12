@@ -1,0 +1,310 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - oi
+    - olá
+    - bom dia
+    - boa tarde
+    - boa noite
+    - hey
+    - e aí
+    - como vai
+    - tudo bem?
+    - oi, tudo bem?
+
+- intent: goodbye
+  examples: |
+    - tchau
+    - até mais
+    - até logo
+    - até a próxima
+    - tenho que ir
+    - vou sair
+    - adeus
+    - até amanhã
+
+- intent: affirm
+  examples: |
+    - sim
+    - claro
+    - com certeza
+    - isso mesmo
+    - correto
+    - ok
+    - pode ser
+    - tá bom
+    - beleza
+
+- intent: deny
+  examples: |
+    - não
+    - nunca
+    - acho que não
+    - não gosto disso
+    - de jeito nenhum
+    - não mesmo
+    - não quero
+    - não concordo
+
+
+- intent: request_relaxation_technique
+  examples: |
+    - preciso relaxar
+    - me ensina alguma técnica para acalmar
+    - como posso ficar mais tranquilo?
+    - estou muito tenso, preciso de ajuda
+    - não consigo me acalmar
+    - preciso diminuir minha ansiedade
+    - como faço para relaxar?
+    - tem alguma técnica de respiração?
+    - quero reduzir meu estresse
+    - como posso meditar?
+    - me ajuda a ficar calmo
+    - preciso de paz mental
+
+- intent: request_time_management
+  examples: |
+    - não consigo organizar meu tempo
+    - como posso gerenciar melhor meus estudos?
+    - tenho muita coisa para fazer e pouco tempo
+    - como criar uma rotina de estudos?
+    - dicas para não procrastinar
+    - como priorizar minhas tarefas?
+    - não sei como organizar minha agenda
+    - estou sempre atrasado com as entregas
+    - preciso de dicas para ser mais produtivo
+    - como equilibrar estudos e vida pessoal?
+    - como fazer um cronograma?
+    - sempre deixo tudo para última hora
+
+- intent: request_study_tips
+  examples: |
+    - me dê dicas de estudo
+    - como estudar melhor para [provas](activity)?
+    - qual a melhor maneira de memorizar conteúdo?
+    - técnicas de estudo eficientes
+    - como me concentrar nos estudos?
+    - não consigo focar quando estudo
+    - como estudar matérias difíceis?
+    - meu rendimento nos estudos está baixo
+    - preciso melhorar minhas notas
+    - como estudar para várias [matérias](activity) ao mesmo tempo?
+    - dicas para fazer boas anotações
+    - como reter mais informação quando estudo?
+
+- intent: request_reminder
+  examples: |
+    - preciso de um lembrete para [estudar](activity) [amanhã às 10h](time)
+    - me lembre de [entregar o trabalho](activity) [na sexta](date)
+    - crie um lembrete para [reunião de grupo](activity) [às 15h](time)
+    - não quero esquecer da [prova](activity) [na segunda](date)
+    - preciso lembrar de [enviar o email](activity) [hoje à noite](time)
+    - pode me avisar sobre [minha consulta](activity) [às 14h](time)?
+    - me lembre sobre [o deadline](activity) [quarta-feira](date)
+    - configure um alerta para [tomar remédio](activity) [às 8h da manhã](time)
+    - não posso esquecer da [entrega final](activity) [dia 15](date)
+
+- intent: emergency_help
+  examples: |
+    - estou pensando em me machucar
+    - não aguento mais viver
+    - quero acabar com tudo
+    - não vejo saída
+    - talvez seja melhor eu desaparecer
+    - ninguém sentiria minha falta
+    - estou no fundo do poço
+    - não vejo razão para continuar
+    - estou em crise
+    - preciso de ajuda urgente
+    - estou tendo pensamentos suicidas
+    - não quero mais existir
+    - não sei se consigo continuar assim
+
+- intent: thank
+  examples: |
+    - obrigado
+    - muito obrigado
+    - valeu
+    - agradeço a ajuda
+    - você ajudou muito
+    - isso foi útil
+    - thanks
+    - valeu pela dica
+    - grato
+    - foi de grande ajuda
+
+- intent: ask_how_works
+  examples: |
+    - como você funciona?
+    - o que você sabe fazer?
+    - como você pode me ajudar?
+    - quais são suas funcionalidades?
+    - o que você faz?
+    - para que você serve?
+    - me explique como você funciona
+    - quais tipos de ajuda você oferece?
+    - você é um terapeuta?
+    - você substitui um psicólogo?
+
+- intent: inform_mood
+  examples: |
+    - estou me sentindo [ansioso](mood)
+    - [deprimido](mood)
+    - meu humor hoje é [triste](mood)
+    - [estressado](mood)
+    - [calmo](mood)
+    - [feliz](mood)
+    - me sinto [irritado](mood)
+    - estou [neutro](mood)
+    - hoje estou [bem](mood)
+    - estou [ruim](mood)
+    - me sinto [péssimo](mood)
+    - estou [ótimo](mood)
+    - me sinto [exausto](mood)
+
+- intent: inform_intensity
+  examples: |
+    - intensidade [7](intensity)
+    - [5](intensity) de 10
+    - nível [8](intensity)
+    - [3](intensity)
+    - [10](intensity) é a intensidade
+    - uma intensidade de [2](intensity)
+    - está em [9](intensity)
+    - o nível é [6](intensity)
+    - é [muito intenso](intensity:10)
+    - é [pouco](intensity:3)
+    - sinto [muita](intensity:8) intensidade
+    - sinto [pouca](intensity:2) intensidade
+    - [zero](intensity:0)
+    - [um](intensity:1)
+    - [dois](intensity:2)
+    - [três](intensity:3)
+    - [quatro](intensity:4)
+    - [cinco](intensity:5)
+    - [seis](intensity:6)
+    - [sete](intensity:7)
+    - [oito](intensity:8)
+    - [nove](intensity:9)
+    - [dez](intensity:10)
+    - [alto](intensity:8)
+    - [baixo](intensity:3)
+
+- intent: inform_trigger
+  examples: |
+    - estou me sentindo assim por causa das [provas](trigger)
+    - o motivo é [problemas familiares](trigger)
+    - [trabalho acumulado](trigger)
+    - por causa da [faculdade](trigger)
+    - é o [estudo](trigger)
+    - o [trânsito](trigger) me estressou
+    - a [discussão](trigger) que tive
+    - o [exame](trigger) de amanhã
+    - a [pressão no trabalho](trigger)
+    - por causa da [notícia](trigger)
+    - [meu chefe](trigger) me deixou assim
+
+
+- intent: mood_anxious
+  examples: |
+    - estou [ansioso](mood)
+    - sinto muita [ansiedade](mood)
+    - não consigo parar de me preocupar
+    - estou com o coração acelerado
+    - sinto que vou ter um ataque de pânico
+    - estou muito nervoso com [prova](activity)
+    - tenho uma [apresentação](activity) e estou super [ansioso](mood)
+    - muita [ansiedade](mood) por causa da [entrega do trabalho](activity)
+    - não consigo respirar direito de tanta [ansiedade](mood)
+    - minha mente não para de pensar em coisas ruins
+    - sinto um aperto no peito
+    - tenho medo do que pode acontecer
+    - estou com medo de fracassar
+
+- intent: mood_depressed
+  examples: |
+    - estou [triste](mood)
+    - me sinto [deprimido](mood)
+    - não tenho vontade de fazer nada
+    - estou sem energia
+    - me sinto sem esperança
+    - não vejo propósito em nada
+    - não consigo encontrar alegria nas coisas
+    - me sinto sozinho mesmo estando com pessoas
+    - tenho chorado muito ultimamente
+    - perdi o interesse nas coisas que gostava
+    - não consigo me concentrar
+    - me sinto um [fracasso](mood)
+    - acho que não valho nada
+
+- intent: mood_stressed
+  examples: |
+    - estou [estressado](mood)
+    - muita [pressão](mood)
+    - [sobrecarregado](mood) com as tarefas
+    - tenho muitas [provas](activity) pra estudar
+    - não consigo dar conta dos [trabalhos](activity)
+    - são muitas [deadlines](activity) ao mesmo tempo
+    - estou no meu [limite](mood)
+    - não estou conseguindo dormir de tanta [preocupação](mood)
+    - me sinto [esgotado](mood)
+    - estou no meu [limite](mood)
+    - muitas responsabilidades
+    - não sei por onde começar
+    - tenho muitas [matérias](activity) atrasadas
+
+- intent: request_mood_tracking
+  examples: |
+    - quero registrar meu humor
+    - como estou me sentindo
+    - registrar meu estado de espirito
+    - acompanhar meu humor
+    - quero falar sobre como me sinto
+    - registrar como estou
+    - me ajude a registrar meu humor
+    - quero acompanhar meus sentimentos
+    - posso registrar meu humor atual?
+    - como posso registrar meu humor?
+    - quero fazer um registro de humor
+    - quero falar sobre meu humor agora
+    - meu humor é [bom](mood)
+    - estou [estressado](mood) com intensidade [8](intensity) por causa da [faculdade](trigger)
+    - me sinto [ansioso](mood) [demais](intensity:10) por causa do [TCC](trigger)
+    - hoje estou [bem](mood) [5](intensity)
+    - me sinto [cansado](mood)
+    - [triste](mood) hoje
+    - [felicidade](mood) [9](intensity)
+
+
+- intent: request_mood_intensity 
+  examples: |
+    - qual a intensidade do meu humor?
+    - qual o nível do meu sentimento?
+    - quão forte está o sentimento?
+
+- intent: request_mood_trigger 
+  examples: |
+    - qual a causa do meu humor?
+    - o que causou isso?
+    - o que está acontecendo?
+    - qual o gatilho?
+
+
+- intent: request_mood_summary
+  examples: |
+    - como estive me sentindo ultimamente?
+    - me mostre meu histórico de humor
+    - resumo do meu humor
+    - como tem sido meus sentimentos?
+    - quero ver meu histórico de sentimentos
+    - quais foram meus humores anteriores?
+    - me dê um resumo geral do meu humor
+    - meu histórico de sentimentos
+    - mostrar meus humores
+    - qual é o meu histórico de humor
+    - como estive me sentindo ultimamente
+    - me mostra meus registros de humor
+    - meu histórico de humor
+    - quero ver meu histórico

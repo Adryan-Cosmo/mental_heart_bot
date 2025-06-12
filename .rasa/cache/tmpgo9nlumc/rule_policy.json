@@ -1,0 +1,34 @@
+{
+  "lookup": {
+    "rules": {
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"thank\"}}]": "utter_thanks",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"thank\"}}, {\"prev_action\": {\"action_name\": \"utter_thanks\"}, \"user\": {\"intent\": \"thank\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"greet\"}}]": "utter_greet",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"greet\"}}, {\"prev_action\": {\"action_name\": \"utter_greet\"}, \"user\": {\"intent\": \"greet\"}}]": "utter_ask_feeling",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"greet\"}}, {\"prev_action\": {\"action_name\": \"utter_greet\"}, \"user\": {\"intent\": \"greet\"}}, {\"prev_action\": {\"action_name\": \"utter_ask_feeling\"}, \"user\": {\"intent\": \"greet\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"emergency_help\"}}]": "utter_emergency_help",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"emergency_help\"}}, {\"prev_action\": {\"action_name\": \"utter_emergency_help\"}, \"user\": {\"intent\": \"emergency_help\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"request_mood_tracking\"}}]": "mood_tracking_form",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"request_mood_tracking\"}}, {\"active_loop\": {\"name\": \"mood_tracking_form\"}, \"prev_action\": {\"action_name\": \"mood_tracking_form\"}, \"user\": {\"intent\": \"request_mood_tracking\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"goodbye\"}}]": "utter_goodbye",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"goodbye\"}}, {\"prev_action\": {\"action_name\": \"utter_goodbye\"}, \"user\": {\"intent\": \"goodbye\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"nlu_fallback\"}}]": "utter_fallback",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"nlu_fallback\"}}, {\"prev_action\": {\"action_name\": \"utter_fallback\"}, \"user\": {\"intent\": \"nlu_fallback\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_emergency_protocol\"}, \"slots\": {\"mood_intensity\": [1.0]}}]": "action_listen"
+    },
+    "rule_only_slots": [],
+    "rule_only_loops": [],
+    "rules_for_loop_unhappy_path": {
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}}, {\"active_loop\": {\"name\": \"mood_tracking_form\"}, \"prev_action\": {\"action_name\": \"mood_tracking_form\"}, \"user\": {\"intent\": \"request_mood_tracking\"}}]": "do_not_predict_loop_action",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}}, {\"active_loop\": {\"name\": \"mood_tracking_form\"}, \"prev_action\": {\"action_name\": \"mood_tracking_form\"}, \"slots\": {\"language\": [1.0]}, \"user\": {\"intent\": \"request_mood_tracking\"}}]": "do_not_predict_loop_action"
+    },
+    "rules_not_in_stories": [
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"nlu_fallback\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"nlu_fallback\"}}, {\"prev_action\": {\"action_name\": \"utter_fallback\"}, \"user\": {\"intent\": \"nlu_fallback\"}}]",
+      "predicting default action with intent session_start",
+      "predicting default action with intent restart",
+      "predicting default action with intent back",
+      "handling active loops and forms - mood_tracking_form"
+    ]
+  }
+}

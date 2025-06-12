@@ -1,0 +1,16 @@
+{
+  "0": "affirm",
+  "1": "ask_how_works",
+  "2": "deny",
+  "3": "emergency_help",
+  "4": "goodbye",
+  "5": "greet",
+  "6": "mood_anxious",
+  "7": "mood_depressed",
+  "8": "mood_stressed",
+  "9": "request_relaxation_technique",
+  "10": "request_reminder",
+  "11": "request_study_tips",
+  "12": "request_time_management",
+  "13": "thank"
+}

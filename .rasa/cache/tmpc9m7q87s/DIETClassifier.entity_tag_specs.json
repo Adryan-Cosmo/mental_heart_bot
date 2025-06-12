@@ -1,0 +1,36 @@
+[
+  {
+    "tag_name": "entity",
+    "ids_to_tags": {
+      "1": "B-activity",
+      "2": "I-activity",
+      "3": "L-activity",
+      "4": "U-activity",
+      "5": "B-date",
+      "6": "I-date",
+      "7": "L-date",
+      "8": "U-date",
+      "9": "B-time",
+      "10": "I-time",
+      "11": "L-time",
+      "12": "U-time",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-activity": 1,
+      "I-activity": 2,
+      "L-activity": 3,
+      "U-activity": 4,
+      "B-date": 5,
+      "I-date": 6,
+      "L-date": 7,
+      "U-date": 8,
+      "B-time": 9,
+      "I-time": 10,
+      "L-time": 11,
+      "U-time": 12,
+      "O": 0
+    },
+    "num_tags": 13
+  }
+]

@@ -1,0 +1,159 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - mood_anxious
+  - mood_depressed
+  - mood_stressed
+  - request_mood_tracking
+  - inform_mood
+  - inform_intensity
+  - inform_trigger
+  - request_mood_summary
+  - emergency_help
+  - request_relaxation_technique
+  - request_time_management
+  - request_study_tips
+  - request_reminder
+  - thank
+  - ask_how_works
+  - nlu_fallback
+  - request_mood_intensity
+  - request_mood_trigger
+  - affirm
+  - deny
+
+entities:
+  - mood
+  - intensity
+  - trigger
+  - activity
+  - time
+  - date
+  - university
+
+slots:
+  activity:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: activity
+  time:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: time
+  date:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: date
+  current_mood: # Manter, será preenchido se a entidade 'mood' for detectada
+    type: text
+    mappings:
+    - type: from_entity
+      entity: mood
+    - type: from_intent # Mantemos para que a detecção de intent também possa preencher
+      intent: mood_anxious
+      value: "ansioso"
+    - type: from_intent
+      intent: mood_depressed
+      value: "deprimido"
+    - type: from_intent
+      intent: mood_stressed
+      value: "estressado"
+  mood_intensity: # Manter, será preenchido se a entidade 'intensity' for detectada
+    type: text
+    mappings:
+    - type: from_entity
+      entity: intensity
+    - type: from_text # Para permitir que o usuário digite a intensidade como texto puro
+  mood_trigger: # Manter, será preenchido se a entidade 'trigger' for detectada
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: trigger
+    - type: from_text # Para permitir que o usuário digite o gatilho como texto puro
+  
+  university: # Manter, será preenchido se a entidade 'university' for detectada
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: university
+
+# Remova a seção 'forms:' completamente
+
+responses:
+  utter_greet:
+    - text: "Olá! Sou o MentalCare, assistente virtual para apoio à saúde mental. Como posso ajudar você hoje?"
+    - text: "Oi! Estou aqui para apoiar seu bem-estar mental. Como está se sentindo hoje?"
+
+  utter_goodbye:
+    - text: "Até logo! Lembre-se que estou aqui se precisar conversar."
+    - text: "Tchau! Cuide-se bem e volte quando quiser."
+
+  utter_how_works:
+    - text: "Sou um assistente virtual projetado para apoiar sua saúde mental. Posso ajudar com técnicas de relaxamento, dicas de organização de estudos, gerenciamento de tempo e oferecer suporte emocional. Lembre-se que não substituo atendimento profissional especializado."
+
+  utter_ask_feeling:
+    - text: "Como você está se sentindo neste momento?"
+
+  utter_anxious:
+    - text: "Entendo que você está se sentindo ansioso. Uma dica é focar em sua respiração por alguns momentos."
+    - text: "A ansiedade pode ser desafiadora. Tente se concentrar no que você pode ver e tocar ao seu redor."
+
+  utter_depressed:
+    - text: "Sinto muito que você esteja se sentindo assim. Lembre-se que seus sentimentos são válidos. Pensar em algo pequeno pelo qual você é grato pode ajudar."
+    - text: "É compreensível sentir-se assim às vezes. Que tal uma pausa rápida, se possível?"
+
+  utter_stressed:
+    - text: "O estresse pode ser intenso. Tente dividir suas tarefas em pequenas partes. Isso pode tornar tudo mais fácil."
+    - text: "Quando estiver sobrecarregado, uma breve pausa pode ser útil. Tente um minuto de foco total e depois um minuto de descanso."
+
+  utter_relaxation_technique:
+    - text: "Tente a técnica de respiração profunda: Inspire profundamente pelo nariz, segure por alguns segundos e expire lentamente pela boca. Repita algumas vezes."
+    - text: "Para relaxar, você pode tentar focar em um objeto específico por um minuto, observando todos os detalhes."
+
+  utter_time_management:
+    - text: "Para gerenciar melhor seu tempo, priorize as três tarefas mais importantes do seu dia. Concentre-se nelas primeiro."
+    - text: "Uma boa ideia é usar o método Pomodoro: 25 minutos de trabalho focado e 5 minutos de descanso."
+
+  utter_study_tips:
+    - text: "Para estudos eficazes, tente explicar o conteúdo para si mesmo. Isso ajuda a fixar a informação."
+    - text: "Estudar em blocos curtos e espaçados é mais eficiente do que longas sessões."
+
+  utter_set_reminder:
+    - text: "Desculpe, não consigo configurar lembretes sem um sistema de integração." # Modificada para refletir a remoção da ação
+    
+  utter_emergency_help:
+    - text: "Percebo que você está passando por um momento muito difícil. Por favor, procure ajuda profissional. Você pode ligar para o CVV (Centro de Valorização da Vida) no número 188. Eles oferecem apoio emocional 24h." # Removida a parte da universidade
+
+  utter_thanks:
+    - text: "Disponha! Estou aqui para ajudar sempre que precisar."
+    - text: "É um prazer poder ser útil. Se precisar de mais alguma coisa, estou à disposição."
+
+  utter_fallback:
+    - text: "Desculpe, não entendi completamente. Poderia reformular sua mensagem? Estou aqui para ajudar com técnicas de relaxamento, gestão de tempo, dicas de estudo ou suporte emocional."
+
+  # Nova resposta para o "registro de humor" sem formulário e sem salvar
+  utter_simple_mood_response:
+    - text: "Entendi que você quer registrar seu humor. No momento, apenas consigo entender como você se sente, mas não guardo um histórico. Por favor, me diga: como você se sente?"
+    - text: "Certo, você quer falar sobre seu humor. Como você está se sentindo agora?"
+
+  # Resposta simplificada para "histórico de humor" sem acesso a dados passados
+  utter_mood_summary:
+    - text: "No momento, não consigo acessar um histórico detalhado do seu humor, pois não estou configurado para armazenar essas informações. Mas estou aqui para ouvir como você se sente agora."
+
+  utter_ask_for_more_help: 
+    - text: "Você quer que eu continue te ajudando com algo mais?"
+    - text: "Posso ajudar com mais alguma coisa?"
+
+  utter_glad_to_help:
+    - text: "Que bom! Fico feliz em poder ajudar."
+    - text: "Excelente! Estou à disposição."

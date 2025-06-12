@@ -1,0 +1,20 @@
+# Este arquivo contém as configurações para conectar o Rasa a componentes externos
+
+# URL do servidor de ações personalizado
+# endpoints.yml
+action_endpoint:
+  url: "http://localhost:5055/webhook"
+
+# # Tracker store para armazenamento persistente de conversas (desabilitado neste exemplo)
+# tracker_store:
+#  type: sql
+#  dialect: "sqlite"
+#  db: "rasa.db"
+
+# # Event broker para envio de eventos para serviços externos (desabilitado neste exemplo)
+# event_broker:
+#   type: pika
+#   url: localhost
+#   username: guest
+#   password: guest
+#   queue: rasa_events

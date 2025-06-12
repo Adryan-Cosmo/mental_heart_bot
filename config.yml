@@ -1,0 +1,35 @@
+recipe: default.v1
+language: pt
+pipeline:
+- name: WhitespaceTokenizer
+- name: RegexFeaturizer
+- name: LexicalSyntacticFeaturizer
+- name: CountVectorsFeaturizer
+- name: CountVectorsFeaturizer
+  analyzer: char_wb
+  min_ngram: 1
+  max_ngram: 4
+- name: DIETClassifier
+  epochs: 200
+  constrain_similarities: true
+- name: EntitySynonymMapper
+- name: ResponseSelector
+  epochs: 200
+- name: FallbackClassifier
+  threshold: 0.7
+  ambiguity_threshold: 0.1
+
+policies:
+- name: MemoizationPolicy
+  max_history: 5
+- name: RulePolicy
+  core_fallback_threshold: 0.4
+  enable_fallback_prediction: true
+- name: TEDPolicy
+  max_history: 10
+  epochs: 200
+  constrain_similarities: true
+- name: RulePolicy
+  core_fallback_threshold: 0.4
+  enable_fallback_prediction: true
+assistant_id: "mental_heart_bot_2025"
